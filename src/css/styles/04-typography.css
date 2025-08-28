@@ -19,3 +19,29 @@ h1 {
 .like {
   font-size: 1.5rem;
 }
+
+/* 글꼴 스타일 */
+h1 {
+  font-style: italic;
+}
+
+/* 줄높이 : 5px+10px+[5px 5px]+20px+5px 중간이 10px인 것처럼 보임*/
+.like {
+  font-size: 20px;
+  /* 픽셀보다 숫자로 넣는게 좋음: 20px*1 */
+  line-height: 1;
+}
+
+/* 정렬 */
+.bootcamp {
+  border: 1px solid red;
+  padding: 20px;
+  background-color: var(--yellow);
+  text-align: center;
+  align-content: center;
+}
+
+/* 글자 그림자 */
+.bootcamp {
+  text-shadow: 1px 1px 0 red;
+}
