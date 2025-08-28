@@ -1,14 +1,76 @@
-/* 전체 선택자 */
+/* 전체 선택자:0 */
 * {
   font-size: 24px;
 }
 
-/* 요소 선택자 */
+/* 요소 선택자: */
 a {
   text-decoration: none;
   color: pink;
 }
-/* 클래스 선택자 */
+
+/* 클래스 선택자:10 */
 .like {
   background-color: rgb(153, 190, 190);
+}
+
+/* 단락 선택자, 띄어쓰기로 구분: 10 */
+p {
+  border: 2px solid blue;
+}
+
+/* 아이디 선택자: 100 */
+#lion {
+  background-color: salmon;
+}
+
+/* 속성 선택자 */
+[href] {
+  color: green;
+}
+
+/* 속성 선택자: 특정 부분만 포함해서 필터링 */
+a [href^='https'] {
+  color: green;
+}
+
+/* 자손 결합자: 구조 명시로 특정 폴더를 지정 */
+.bootcamp p {
+  color: gray;
+}
+
+/* 자식 결합자 */
+.bootcamp > p {
+  padding: 10px;
+}
+
+/* 선택자 그룹화 */
+a,
+h1,
+#lion {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* 가상 요소 선택자 */
+h1::before {
+  content: '멋사';
+}
+
+h1::after {
+  content: '15기';
+}
+
+p::before {
+  content: 'open';
+  font-size: 36px;
+  color: aqua;
+}
+p::first-letter {
+  font-size: 80px;
+  font-weight: 900;
+}
+
+p::selection {
+  background-color: darkblue;
+  columns: white;
 }
