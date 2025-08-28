@@ -1,0 +1,14 @@
+/* 전체 선택자 */
+* {
+  font-size: 24px;
+}
+
+/* 요소 선택자 */
+a {
+  text-decoration: none;
+  color: pink;
+}
+/* 클래스 선택자 */
+.like {
+  background-color: rgb(153, 190, 190);
+}
