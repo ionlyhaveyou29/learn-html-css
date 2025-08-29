@@ -1,0 +1,72 @@
+body {
+  margin: 20px;
+}
+
+/* position: relative - 움직일 수 있는 상태 */
+.like {
+  background-color: var(--yellow);
+  position: relative;
+  left: 50px;
+  bottom: 50px;
+}
+
+/* margin? position에서 left? 어떤 걸 써야함? - 후자가 오류는 덜 생김*/
+/* .lion {
+  background-color: #cff;
+  margin-left: 50px;
+  margin-right: -50px;
+} */
+
+.wrapper {
+  width: 500px;
+  border: 2px solid red;
+}
+
+/* position: absolute */
+.bootcamp {
+  background-color: #fcf;
+  /* 블록 요소라서 부모 넓이만큼 적용돼야하는데, 글자에만 있음 */
+  /* static 탈출~ 크기를 정해주지 않으면, 콘텐츠크기로 줄어듦 */
+  position: absolute;
+  /* viewport 크기인 것처럼 동작 */
+  left: 50px;
+  top: 100px;
+}
+
+/* position: fixed */
+.school {
+  background-color: #cff;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+/* position: sticky */
+h1 {
+  background-color: #cfc;
+  /* 변화를 느낄 수 없음 */
+  position: sticky;
+  /* h1이 위에 계속 고정돼있음:  */
+  top: 0;
+  /* 이렇게 하는 이유가 뭐지... 놓침띠니 */
+  z-index: 10;
+}
+
+/* z-index 속성 - 기본값: auto*/
+/* 항상 마지막에 있는게 맨 위로 올라옴, 그걸 바꾸는 것!*/
+.frontend,
+.euid {
+  position: relative;
+  padding: 10px;
+}
+/* relative - 차이는 없지만, 움직일 수 있는 상태 */
+.frontend {
+  background-color: yellow;
+  top: 20px;
+  /* 노란색이 올라옴, auto면 다시 원상태되네 왜지?*/
+  z-index: 10;
+}
+
+.euid {
+  background-color: orange;
+}
