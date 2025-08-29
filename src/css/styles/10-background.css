@@ -1,0 +1,25 @@
+body {
+  margin: 20px;
+}
+
+/* 배경 스타일링 */
+body {
+  background-color: #ffc;
+  /* body크기만큼만 이미지가 다 채워져서 보임 */
+  /* 배경의 경우: 먼저 선언하면 위, 나중에 선언하면 뒤 */
+  background-image: url(/src/assets/images/sun.png), url(/src/assets/images/cloud.png);
+  /* 한번만 나옴, 따로따로 주는 것도 가능, 따로 안하면 둘다 norepeat 적용 */
+  background-repeat: no-repeat, repeat-x;
+  /* background-repeat: repeat-x; - x축 반복, y축도 마찬가지, 둘다 반복하는 경우 repeat */
+  background-size: 100px 100px;
+  background-position: 50% 30%;
+  /* contents만 움직이고, 배경은 고정, 기본은 scroll */
+  background-attachment: fixed;
+}
+
+/* background 속성으로 축약해서 표현하기 */
+body {
+  background:
+    #ffc url(/src/assets/images/sun.png) no-repeat 50% 30% /100px 100px fixed,
+    url(/src/assets/images/cloud.png) no-repeat 50% 30% /100px 100px fixed;
+}
