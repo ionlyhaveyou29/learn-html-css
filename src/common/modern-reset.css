@@ -1,6 +1,6 @@
 /* https://piccalil.li/blog/a-modern-css-reset */
 
-/* Box sizing rules */
+/* Box sizing rules: 전체중 body 제한*/
 body *,
 body *::before,
 body *::after {

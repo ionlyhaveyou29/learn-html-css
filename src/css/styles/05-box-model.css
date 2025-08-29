@@ -1,0 +1,103 @@
+body {
+  margin: 20px;
+  background-color: pink;
+}
+/* 블록 상자 */
+h1 {
+  background-color: #fcf;
+}
+
+.bootcamp {
+  border: 2px solid red;
+}
+
+p {
+  background-color: #cff;
+  margin-block: 10px;
+}
+
+/* 인라인 상자 */
+strong {
+  background-color: red;
+  width: 100px;
+  display: inline-block;
+}
+
+/* 안쪽 여백 */
+.like {
+  padding: 10px;
+}
+
+.lion {
+  padding: 10px 20px;
+}
+
+.love {
+  padding: 10px 20px 30px;
+}
+
+.front {
+  padding-left: 20%;
+}
+
+.end {
+  padding-left: 20%;
+}
+
+/* 바깥쪽 여백 - margin */
+h1 {
+  margin: 20px -20px;
+}
+
+.euid {
+  border: 2px solid green;
+  width: 880px;
+  margin: 0 auto;
+}
+p {
+  margin: 20px 0;
+}
+
+.like {
+  margin-bottom: 30px;
+}
+
+.bootcamp {
+  margin: 0 auto;
+}
+
+/* 음수 마진 */
+.container {
+  border: 2px solid blueviolet;
+  margin: 20px auto;
+  width: 800px;
+  /* float로 인해서, 잃어버린 걸 되찾음 */
+  display: flow-root;
+}
+
+.container div {
+  width: 80px;
+  height: 80px;
+  border: 1px solid red;
+  border-radius: 50%;
+  align-content: center;
+  padding-left: 1em;
+  /* 부모요소의 wrapping을 잃어버림 */
+  float: left;
+}
+
+.container div:nth-child(2n + 1) {
+  background-color: yellow !important;
+}
+
+.container div:first-child {
+  background-color: var(--yellow);
+}
+
+.container div:nth-child(2) {
+  background-color: var(--green);
+}
+
+.container div:last-child {
+  background-color: var(--aqua);
+}
