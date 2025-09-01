@@ -64,6 +64,8 @@ body {
   /* 굵기도 0, 테두리도 없음 */
   border: 0 none;
   position: relative;
+  /* inline요소로 인해서, 레이아웃 오차가 발생함 */
+  vertical-align: top;
 
   --size: 64px;
 
@@ -103,5 +105,27 @@ body {
 
   &[aria-label='offline']::after {
     background-color: #dbdbdb;
+  }
+}
+
+/* 아바타 레이아웃 */
+/* 하다보면, 레이아웃 수정? 컴포넌트 수정?이 중요한 결정사안 */
+.avatar-list {
+  background-color: #fff8d0;
+  /* 가로방향 나열 가능 */
+  display: flow-root;
+
+  /* border까지 고려해서 양옆 합쳐 4px */
+  /* 내부 가용범위는 396px */
+  width: 400px;
+  border: 2px solid red;
+  /* 아까 있던 오른쪽 넓은 부분을 나눠서, 왼쪽에 붙여주기 */
+  padding: 10px 30px;
+
+  /* 396-384면 6개가 들어갈 수 있음 */
+  li {
+    float: left;
+    /* li가 float된 상황에는 겹치지 않음, normal flow는 겹침 */
+    margin: 10px;
   }
 }
