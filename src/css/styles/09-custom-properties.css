@@ -1,0 +1,26 @@
+/* 항상 제일 위에 선언, 초기값, 전역인 건 아님 */
+@property --text-color {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #ff3be2;
+}
+
+body {
+  margin: 20px;
+  color: var(--text-color);
+}
+/* 앵커태그: 원래 색, 상속이 되더라도, 내가 가진 색상이 우선됨 */
+
+/* 내부의 요소에 영향을 끼침 */
+div {
+  /* 이미 정해진 custom property의 값을 갱신 */
+  /* 상속되지 않음 */
+  --text-color: #00f;
+  color: var(--text-color);
+
+  /* property에 적용된 핑크가 적용됨 */
+  /* 초기값을 그대로 반영 */
+  p {
+    color: var(--text-color);
+  }
+}
