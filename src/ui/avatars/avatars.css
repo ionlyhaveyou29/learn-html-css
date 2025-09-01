@@ -56,3 +56,52 @@ body {
     background-color: #dbdbdb;
   }
 }
+
+/* <button> 요소 */
+.avatar-button {
+  /* background-color: #fcf; */
+  padding: 0;
+  /* 굵기도 0, 테두리도 없음 */
+  border: 0 none;
+  position: relative;
+
+  --size: 64px;
+
+  width: var(--size);
+  height: var(--size);
+  /* 비율이 맞춰서 이미지가 늘어났다가 줄어듦 */
+  /* aspect-ratio: 2/1; */
+
+  /* 부모 걸 상속받기 위해서는 img도 따로 불러와야함 */
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  /* 아바타 버튼에 after(가상요소) 선택자 사용: 꾸마기 관련 속성도 넣을 수 있음 */
+  /* 반드시 필요한 속성: content */
+  &::after {
+    content: '';
+    display: block;
+    width: 18px;
+    /* 여기에 border의 2px포함 */
+    height: 18px;
+    background-color: #ff2424;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  /* CSS 처리 */
+  &[aria-label='online']::after {
+    background-color: #4cfe88;
+  }
+
+  &[aria-label='offline']::after {
+    background-color: #dbdbdb;
+  }
+}
