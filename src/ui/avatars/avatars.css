@@ -1,0 +1,58 @@
+body {
+  margin: 50px;
+}
+/* 접근성 관련 CSS */
+/* on,offline 글자 가릴 수 있는 코드 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* 아바타 컴포넌트 */
+.avatar-img {
+  /* 영역이 잘 선택되었는지 확인하는 방법 - 배경 또는 박스 그림자 */
+  background-color: #ffc;
+  /* 커스텀 속정 */
+  --size: 64px;
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+
+  img {
+    /* width와 height를 100%로 설정, 
+    어차피 같은 크기를 원하니까 - 부모만 조절해도 자식이 같이 조절되게끔 */
+    width: 64px;
+    height: 64px;
+    /* 동그랗게 만들 수 있는 방법 */
+    border-radius: 50%;
+    position: relative;
+  }
+
+  span {
+    display: block;
+    width: 18px;
+    /* 여기에 border의 2px포함 */
+    height: 18px;
+    background-color: #dbdbdb;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  .on {
+    background-color: #4cfe88;
+  }
+
+  .off {
+    background-color: #dbdbdb;
+  }
+}
