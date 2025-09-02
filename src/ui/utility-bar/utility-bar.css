@@ -1,0 +1,43 @@
+body {
+  margin: 20px;
+}
+/* 유틸리티바 */
+.utility-bar {
+  background: #fcf;
+  text-transform: uppercase;
+  display: flow-root;
+  font-size: 0;
+  text-align: right;
+  /* 자식에게 상속이 됨, 그러나 내가 가진 앵커에 underline이 있어서 underline이 됨 */
+  /* text-decoration: none; */
+  /* color: green; */
+
+  /* 이거 base.css에 넣어뒀음 /* 
+  /* 일케 되면 자식에게 매번 상속 안해줘도 알아서 상속됨 */
+  /* a {
+    /* 현재 적용되는 스타일이 개발자 도구에 맨 위에! 여기서는 지정된게 우선됨 */
+  /* text-decoration: none;
+    color: inherit; */
+  /* } */
+
+  li {
+    background-color: yellow;
+    /* 인라인 블록으로 작업을 하면, gap이 발생 */
+    /* 사유: html에서 enter가 공백을 만들어서 그럼 */
+    /* 부모에게 font-size:0으로, 그러면 상속이 되니 li와 span모두에게 그렇게됨 */
+    display: inline-block;
+  }
+  /* 왜 갑자기 여기 두개를 묶었냐? */
+  a,
+  [aria-hidden='true'] {
+    /* 자식과 함께 커짐 */
+    display: inline-block;
+    font-size: 1rem;
+    background-color: #ffc;
+    /* 링크 면적이 8px만큼 증가 */
+    padding-inline: 8px;
+    /* 얘만 주면, 부모 상자의 높이는 그대로, 위에 inline-block주기 */
+    /* auto는 부모<->자식: 양방향 적용 */
+    padding-block: 5px;
+  }
+}
