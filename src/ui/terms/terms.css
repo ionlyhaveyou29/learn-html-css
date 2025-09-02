@@ -47,11 +47,49 @@ body {
 
   .thumbnail {
     float: left;
-    margin-right: 16px;
+    /* margin-right: 16px; */
   }
 
   .description {
     margin-top: 10px;
     font-size: 1em;
+  }
+}
+
+/* 레이아웃 */
+.terms {
+  --gray-700: #7a7a7a;
+  --gray-600: #cccccc;
+  --gray-500: #eeeeee;
+  --spacing: 1rem;
+
+  background: var(--gray-600) linear-gradient(var(--gray-600), var(--gray-500));
+  border: 1px solid var(--gray-700);
+  border-radius: 10px;
+  padding: var(--spacing);
+  /* 자식 컴포넌트도 한정됨 */
+  width: 250px;
+  .headline {
+    font-size: 1.25rem;
+    /* h3으로 바꾸면, 두께가 자동적용되니까 지워도 되는데, 마크업 수정할 수 있으니까 */
+    font-weight: 700;
+    margin-bottom: var(--spacing);
+  }
+
+  .term {
+    margin-top: calc(var(--spacing) - 4px);
+  }
+  /* 2n+1 이런식도 됨*/
+  & .term:nth-child(odd) {
+    background: pink;
+
+    .subject,
+    .description {
+      float: left;
+    }
+
+    .thumbnail {
+      float: right;
+    }
   }
 }
