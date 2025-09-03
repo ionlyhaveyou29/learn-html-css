@@ -1,0 +1,39 @@
+body {
+  margin: 20px;
+}
+
+/* width/height - inline-size/block-size */
+.like {
+  background: yellow;
+  /* width: 400px; */
+  /* 인라인은 왼쪽에서 오른쪽으로 쌓이니까 너비 */
+  inline-size: 400px;
+  /* 블록은 위에서 아래쪽으로 쌓이니까 높이 */
+  /* height: 100px; */
+  block-size: 100px;
+}
+
+/* margin/padding. - top, right, bottom, left */
+.lion {
+  background: pink;
+  /* 속기법 */
+  padding-block: 20px;
+  /* padding-block-start: 20px; 
+  padding-block-end: 20px; */
+
+  /* 속기법 */
+  margin-inline: 20px;
+  /* margin-inline-start: 20px;
+  margin-inline-end: 20px; */
+}
+
+/* float: left or right / inline-start or inline-end */
+.bootcamp {
+  background: aqua;
+
+  strong {
+    background: orange;
+    /* float:left와 같은 동작 */
+    float: inline-start;
+  }
+}
