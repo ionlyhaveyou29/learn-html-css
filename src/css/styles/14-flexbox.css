@@ -1,0 +1,144 @@
+body {
+  margin: 20px;
+}
+
+/* 플렉스 박스 */
+/* 플렉스 컨테이너 관련 속성 */
+.like {
+  background: #ccf;
+  box-shadow: 0 0 0 1px red;
+  /* 논리 속성자 */
+  inline-size: 500px;
+  /* like가 flex container역할 */
+  /* like가 컨테이너니까, 안의 like-itemn은 flex item이 됨 */
+  display: flex;
+  /* diplay:flex이면 기본적으로 row, nowrap으로 각각 동작함 */
+  /* 속기법  */
+  flex-flow: row nowrap;
+
+  /* 컨테이너가 지시하는대로 아이템의 방향이 지정됨 */
+  /* row는 float-left와 유사: 차이는 부모 말고, 자식요소에 직접 적용해야됨 */
+  /* 메인 축: x, 교차축: y | column의 경우 반대*/
+  flex-direction: row;
+  /* 메인축 정렬 */
+  justify-content: end;
+  /* 교차축 정렬 */
+  align-items: start;
+
+  /* 현재 item 다음 숫자가 다르므로 그냥 div를 갖고오기 */
+  > div {
+    /* 총 필요한 것: 4개이므로 1000px | 근데 부모는 현재 500px |
+    부모랑 맞춰야하니까 알아서 flexsible하게 125px만큼씩 렌더링 됨*/
+    /* overflow가 안됨 */
+    inline-size: 200px;
+
+    /* 내가 정한 200px대로 나오게 하고 싶으면, flex-wrap:wrap;을 사용, 기본은 nowrap  */
+  }
+}
+
+/* 줄바꿈 허용 */
+.lion {
+  background: #ccf;
+  box-shadow: 0 0 0 1px red;
+  inline-size: 500px;
+  block-size: 100px;
+  display: flex;
+  flex-flow: row wrap;
+
+  flex-direction: row;
+
+  justify-content: end;
+
+  /* align-content가 우선됨 */
+  align-items: center;
+  align-content: center;
+
+  > div {
+    inline-size: 200px;
+  }
+}
+
+/* 플렉스 아이템 관련 속성 */
+.bootcamp {
+  background: pink;
+  box-shadow: 0 0 0 1px blue;
+  inline-size: 400px;
+  display: flex;
+  flex-flow: row nowrap;
+
+  > div {
+    /* 내부적으로 flex-shrink: 1;가 동작 */
+    /* 전체가 400px이니까, 25px씩 모자라서 100px로 나옴 */
+    inline-size: 125px;
+  }
+
+  .bootcamp-item3 {
+    background: green;
+    /* flex박스에서는 위치 변환이 가능 */
+    /* auto 3개, 남았을 때 1 */
+    order: 1;
+  }
+
+  .bootcamp-item4 {
+    background: yellow;
+    order: -1;
+  }
+  /* 배치는 direction에 따라 다름, 현재는 row */
+  /* -1이 가장 먼저, auto 2개, 마지막에 1 */
+  /* 4번 - 1번 - 2번 - 3번 */
+  /* 양수라면 큰 숫자가 뒤에 나옴 */
+
+  /* flex-shrink: 축소 */
+  .bootcamp-item1 {
+    background: lime;
+    flex-shrink: 1;
+  }
+
+  .bootcamp-item2 {
+    background: silver;
+    /* 축소되는 비율이 달라짐 */
+    /* 모자란 100px을 아이템1234 순서대로 1,1,2,1의 비율만큼 축소*/
+    flex-shrink: 2;
+  }
+}
+
+/* flex-grow: 확대 */
+.frontend {
+  background: pink;
+  box-shadow: 0 0 0 1px blue;
+  inline-size: 1000px;
+  display: flex;
+  flex-flow: row nowrap;
+
+  > div {
+    /* inline-size: 125px; */
+    /* flex-basis: auto인 경우 텍스트 사이즈에 맞춰서 줄어듦 */
+    /* 헷갈리면, flex-basis:0;으로 해보기 */
+    flex-basis: 125px;
+  }
+
+  .frontend-item1 {
+    background: skyblue;
+    /* 확대는 기본이 0 */
+    flex-grow: 0;
+  }
+
+  .frontend-item2 {
+    background: silver;
+    flex-grow: 0;
+  }
+
+  .frontend-item3 {
+    background: lime;
+
+    flex-grow: 0;
+  }
+
+  /* 1000-(125*3: grow가 0)=625px 빼고 남는영역 전체 */
+  /* calc()보다 효율적일지도... 그 웹접근성 레이아웃이랑 비교 */
+  .frontend-item4 {
+    background: salmon;
+
+    flex-grow: 1;
+  }
+}
