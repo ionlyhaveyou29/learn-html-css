@@ -2,6 +2,7 @@ body {
   margin: 20px;
 }
 
+/* 논리속성자: 행렬  */
 /* width/height - inline-size/block-size */
 .like {
   background: yellow;
@@ -36,4 +37,31 @@ body {
     /* float:left와 같은 동작 */
     float: inline-start;
   }
+}
+
+.frontend {
+  background: lime;
+  padding: 20px;
+  position: relative;
+
+  strong {
+    background: orange;
+    position: absolute;
+    /* / top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0; / */
+    inset: 0;
+  }
+}
+
+.euid {
+  background: gray;
+  padding: 10px;
+  /* / border-top:2px solid red; / */
+  border-block-start: 2px solid red;
+  /* / padding-block-start: 20px; / */
+  /* / 이렇게  한쪽만 쓰면 나머지는 기본값 0으로 적용 / */
+  /* / border-bottom: 2px dashed blue; */
+  border-block-end: 2px dashed blue;
 }

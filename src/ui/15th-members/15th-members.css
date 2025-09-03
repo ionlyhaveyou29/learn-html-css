@@ -1,0 +1,83 @@
+body {
+  margin: 20px;
+}
+
+/* 마진과 패딩 여기서는 모두 적용가능, 큰차이 없음 */
+h1 {
+  margin-block-end: 20px;
+}
+
+.members-wrapper {
+  inline-size: 100%;
+  /* 자식 요소가 overflow됨 */
+  block-size: 120px;
+  overflow: auto;
+  /* overflow: scroll;이 있음 */
+
+  table {
+    border: 1px solid var(--black);
+    /* col의 부모는 table이니까 여기에 width를 줘야함 */
+    width: 100%;
+    /* 표 여백 사라짐 */
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  /* 유연한 레이아웃: vw,(r)em,백분율 활용 */
+  .number {
+    inline-size: 10%;
+  }
+
+  .name {
+    inline-size: 20%;
+  }
+
+  .email {
+    inline-size: 30%;
+  }
+  .phone {
+    inline-size: 40%;
+  }
+
+  th,
+  td {
+    /* 틈사이가 남아있음 */
+    border: 1px solid black;
+  }
+  /* 가운데 정렬 */
+  td {
+    text-align: center;
+  }
+  /* 높이를 고정하지 않고(auto로 설정), 나머지를 바꿀 수 있는 방법 찾기 */
+
+  /* 번호, 이름, 이메일, 연락처는 줄바꿈 금지 */
+  th {
+    white-space: nowrap;
+  }
+  /* td를 늘리면,->tr->table 순서로 증가 */
+  th,
+  td {
+    white-space: nowrap;
+    text-align: center;
+    /* 글자 크기에 여백이 비례하고 싶다면? em사용 */
+    /* 각각 위아래, 좌우 */
+    padding: 0.5em 1em;
+
+    /* font-size: 20px;, 기본은 16px */
+  }
+
+  thead tr,
+  tfoot tr {
+    background: var(--black);
+    color: var(--white);
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--gray);
+  }
+
+  /* 첫 행이 고정됨 */
+  thead tr {
+    position: sticky;
+    top: 0;
+  }
+}
