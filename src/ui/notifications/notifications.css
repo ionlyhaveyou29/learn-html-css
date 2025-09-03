@@ -1,0 +1,57 @@
+body {
+  margin: 20px;
+}
+
+/* .notification {
+  --black: #121212;
+  --green: #22be61;
+  --gray: #9b9a90;
+  --white: #fff;
+  background: green;
+  flex-basis: 0;
+  display: flex;
+  flex-flow: row nowrap; */
+/* 이미지와 텍스트 부분 두개를 flex아이템으로 나눠야함 */
+/* 이미지는 f-s:0; - 사라지지 않게 */
+/* 텍스트 부분 f-g ??? */
+/* .notification-content {
+    background: rgb(195, 195, 195);
+
+    .strong {
+    }
+
+    .time {
+      flex-direction: column;
+    }
+
+    .p {
+    }
+  }
+} */
+
+.notification {
+  --black: #121212;
+  --green: #22be61;
+  --gray: #9b9a90;
+  --white: #fff;
+
+  background: #fcf;
+
+  border: 1px solid var(--gray);
+  border-radius: 0.25rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-flow: row nowrap;
+
+  .notification-icon {
+    /* 얘는 박스 크기에 영향 안받음 */
+    box-shadow: 0 0 0 1px red;
+    flex: 0 0 auto;
+  }
+
+  .notification-content {
+    box-shadow: 0 0 0 1px blue;
+    /* 부모 요소만큼 확대 */
+    flex: 1 1 0;
+  }
+}
