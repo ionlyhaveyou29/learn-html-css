@@ -29,7 +29,7 @@ body {
   }
 } */
 
-.notification {
+/* .notification {
   --black: #121212;
   --green: #22be61;
   --gray: #9b9a90;
@@ -45,13 +45,75 @@ body {
 
   .notification-icon {
     /* 얘는 박스 크기에 영향 안받음 */
-    box-shadow: 0 0 0 1px red;
+/* box-shadow: 0 0 0 1px red;
     flex: 0 0 auto;
+  } */
+
+/* .notification-content {
+    box-shadow: 0 0 0 1px blue;
+    /* 부모 요소만큼 확대 */
+/* flex: 1 1 0; */
+/* } */
+
+/* } */
+
+.notification {
+  --black: #121212;
+  --green: #22be61;
+  --gray: #9b9a90;
+  --white: #fff;
+
+  /* 변수에 변수를 담아서 */
+  --point-color: var(--green);
+  --text-color: var(--gray);
+  --bg-color: var(--white);
+
+  border: 1px solid currentColor;
+  color: var(--text-color);
+  border-radius: 0.25rem;
+  padding: 1.25rem;
+  display: flex;
+  flex-flow: row nowrap;
+  column-gap: 1.25rem;
+  align-items: center;
+
+  .notification-icon {
+    flex: 0 0 auto;
+    /* svg는 css에서 색 컨트롤 가능 */
+    rect {
+      fill: var(--point-color);
+    }
   }
 
   .notification-content {
-    box-shadow: 0 0 0 1px blue;
-    /* 부모 요소만큼 확대 */
     flex: 1 1 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    row-gap: 4px;
+
+    strong,
+    time {
+      color: var(--point-color);
+    }
+
+    strong {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
+
+    time {
+      font-size: 0.6875rem;
+    }
+
+    p {
+      inline-size: 100%;
+      font-size: 0.875rem;
+    }
   }
+}
+
+/* 레이아웃 */
+.notification-wrapper {
+  background: #ffc;
 }
