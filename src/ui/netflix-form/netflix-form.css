@@ -192,3 +192,71 @@ body {
     }
   }
 }
+/* 콤보 박스 */
+/* .combo-box {
+  background: #fcf;
+  border-radius: 4px;
+  border: 1px solid var(--gray-500);
+  padding: 0.5em 0.4em;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  /* .select,
+  svg {
+    flex-grow: 1;
+  } */
+/* 콘텐츠 너비에 맞게 조절됨 */
+/* width: fit-content;
+
+  .select {
+    /* flex-grow: 1; 남는 공간을 모두 차지하도록 함 */
+/* border: none;
+    background: transparent;
+    outline: none;
+  }  */
+/* }  */
+
+/* 콤보박스 */
+.combo-box {
+  --text-color: var(--gray-900);
+  display: inline-flex;
+  /* 부모는 이렇게 */
+  position: relative;
+
+  flex-flow: row nowrap;
+  /* 교차축 정렬: 현재 아이콘에서는 세로 정렬이 필요 */
+  align-items: center;
+  color: var(--text-color);
+
+  /* select가 전체 svg요소까지 포함할 수 있을까 */
+  select {
+    inline-size: 100%;
+    /* 기본 여백까지 고려해서 다시 추가해줘야됨 */
+    padding: 0.25em 1em 0.25em 2em;
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    color: inherit;
+    /* user agent style을 없앰 */
+    appearance: none;
+  }
+
+  /* svg를 position으로 배치하려는 시도: 부모는 상대로! */
+  /* 너무 겹쳐있긴해 */
+  /* 콤보박스 위에 떠 있음 */
+  svg {
+    position: absolute;
+    /* 양옆 사진을 선택해도 언어변경이 가능 */
+    pointer-events: none;
+  }
+
+  > svg:nth-of-type(1) {
+    /* border: 1px solid yellow; */
+    inset-inline-start: 8px;
+  }
+  /* 분명 자식요소 순서로는 3번인데 2번으로 할 수 있는 이유: type */
+  > svg:nth-of-type(2) {
+    /* border: 1px solid green; */
+    inset-inline-end: 8px;
+  }
+}
