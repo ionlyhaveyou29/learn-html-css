@@ -1,6 +1,8 @@
 body {
   margin: 20px;
 }
+
+/* flex보다 레이아웃이 디테일해짐 */
 /* 그리드 셀 배경 색상 */
 .like {
   div:nth-child(1) {
@@ -114,7 +116,7 @@ body {
 
 /* 열과 행의 크기 - px,rem,percentage,fr */
 .lion {
-  background: rgb(154, 252, 255);
+  border: 1px solid rgb(255, 98, 71);
   inline-size: 500px;
   block-size: 200px;
   display: grid;
@@ -123,7 +125,26 @@ body {
   /* 자식요소가 부모를 넘어서지 않음 */
   grid-template-columns: 50px 6.25rem 15% 2fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
+
+  /* auto부터 배치 후, 지정 순서대로 */
+  > div:nth-child(odd) {
+    order: 1;
+  }
+  /* 그대로? */
+  /* 부모크기보다 열 크기가 작았을 때, 그 안에서! */
+  /* 가운데 정렬된 느낌??? */
+  justify-content: center;
+  /* 잘 적용됨 */
+  align-items: center;
+  justify-items: center;
+
+  .lion1 {
+    /* justify-self: end;
+    align-self: end; */
+    place-self: center;
+  }
 }
+
 /* 라인 기반의 레이아웃 */
 .euid {
   background: rgb(255, 183, 75);
