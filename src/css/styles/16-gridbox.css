@@ -1,0 +1,146 @@
+body {
+  margin: 20px;
+}
+/* 그리드 셀 배경 색상 */
+.like {
+  div:nth-child(1) {
+    background: var(--pink);
+  }
+  div:nth-child(2) {
+    background: var(--blue);
+  }
+  div:nth-child(3) {
+    background: var(--coral);
+  }
+  div:nth-child(4) {
+    background: var(--green);
+  }
+  div:nth-child(5) {
+    background: var(--purple);
+  }
+  div:nth-child(6) {
+    background: var(--gray);
+  }
+  div:nth-child(7) {
+    background: var(--apricot);
+  }
+}
+
+.lion {
+  div:nth-child(1) {
+    background: var(--pink);
+  }
+  div:nth-child(2) {
+    background: var(--blue);
+  }
+  div:nth-child(3) {
+    background: var(--coral);
+  }
+  div:nth-child(4) {
+    background: var(--green);
+  }
+  div:nth-child(5) {
+    background: var(--purple);
+  }
+  div:nth-child(6) {
+    background: var(--gray);
+  }
+  div:nth-child(7) {
+    background: var(--apricot);
+  }
+}
+
+.euid {
+  div:nth-child(1) {
+    background: var(--pink);
+  }
+  div:nth-child(2) {
+    background: var(--blue);
+  }
+  div:nth-child(3) {
+    background: var(--coral);
+  }
+  div:nth-child(4) {
+    background: var(--green);
+  }
+  div:nth-child(5) {
+    background: var(--purple);
+  }
+  div:nth-child(6) {
+    background: var(--gray);
+  }
+  div:nth-child(7) {
+    background: var(--apricot);
+  }
+}
+
+.frontend {
+  div:nth-child(1) {
+    background: var(--pink);
+  }
+  div:nth-child(2) {
+    background: var(--blue);
+  }
+  div:nth-child(3) {
+    background: var(--coral);
+  }
+  div:nth-child(4) {
+    background: var(--green);
+  }
+  div:nth-child(5) {
+    background: var(--purple);
+  }
+  div:nth-child(6) {
+    background: var(--gray);
+  }
+  div:nth-child(7) {
+    background: var(--apricot);
+  }
+}
+
+.like {
+  background: yellow;
+  inline-size: 500px;
+  block-size: 200px;
+  /* 높이 값이 증가: align-items의 기본값은 stretch */
+  /* 1열 7행 그리드: 각 셀에 마크업한 순서로 자동으로 배치 */
+  /* column 1,2,3,4.. row 1,2,3,4...가 존재 */
+  /* 4열 4행으로 나눠서, 25%씩 할당 */
+  display: grid;
+  /* 100%, 즉 부모 이상 줄 수 있음 */
+  grid-template-columns: 25% 25% 50% 50%;
+  grid-template-rows: 25% 25% 25% 25%;
+}
+
+/* 열과 행의 크기 - px,rem,percentage,fr */
+.lion {
+  background: rgb(154, 252, 255);
+  inline-size: 500px;
+  block-size: 200px;
+  display: grid;
+  /* 단위: fraction */
+  /* 25% = 1/4*/
+  /* 자식요소가 부모를 넘어서지 않음 */
+  grid-template-columns: 50px 6.25rem 15% 2fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+/* 열과 행의 크기 - repeat()함수 */
+.euid {
+  background: rgb(255, 183, 75);
+  inline-size: 500px;
+  block-size: 200px;
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.frontend {
+  background: rgb(248, 106, 255);
+  inline-size: 500px;
+  block-size: 200px;
+  display: grid;
+
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
