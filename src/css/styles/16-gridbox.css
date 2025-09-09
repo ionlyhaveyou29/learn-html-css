@@ -124,7 +124,7 @@ body {
   grid-template-columns: 50px 6.25rem 15% 2fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
 }
-/* 열과 행의 크기 - repeat()함수 */
+/* 라인 기반의 레이아웃 */
 .euid {
   background: rgb(255, 183, 75);
   inline-size: 500px;
@@ -133,14 +133,97 @@ body {
 
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
+
+  .euid1 {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-row-end: 3;
+    grid-column-end: 4;
+  }
+
+  .euid2 {
+    grid-row-start: 4;
+    grid-column-start: 4;
+    grid-row-end: 5;
+    grid-column-end: 5;
+  }
+
+  .euid3 {
+    grid-row-start: 1;
+    grid-column-start: 4;
+    grid-row-end: 2;
+    grid-column-end: 5;
+  }
+  /* 셀이 한개면 스타트만 줘도됨 */
+  .euid4 {
+    grid-row-start: 3;
+    grid-column-start: 1;
+  }
+  .euid5 {
+    grid-row-start: 3;
+    grid-row-end: 5;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    /* 병합 가능 */
+    /* grid-row: 2 / span 2; */
+  }
+
+  .euid6 {
+    /* grid-row-start: 2;
+    grid-row-end: 4;
+    grid-column-start: 4;
+    grid-column-end: 5; */
+    /* 단축 표기법 */
+    /* 열시작, 행시작, 열끝, 행끝 */
+    grid-area: 2 / 4 / 4 / 5;
+  }
+
+  .euid7 {
+    grid-area: 4 / 1;
+  }
 }
 
+/* 그리드 이름 기반 레이아웃 */
 .frontend {
   background: rgb(248, 106, 255);
-  inline-size: 500px;
+  /* 뷰포트 크기의 80% */
+  inline-size: 80%;
+  /* 아무리 줄여도 400px이하로 줄지 않음 */
+  /* 부모는 줄어드는 것처럼 보여도, 이건 그냥 색을 지정하는 거기 때문에 이미 부모는 자식을 포함하고 있음 */
+  /* min-inline-size: 400px; */
   block-size: 200px;
   display: grid;
-
-  grid-template-columns: repeat(6, 1fr);
+  /* 자식이 아무리 줄여도 100px이하로 줄지 않음 */
+  grid-template-columns: repeat(4, minmax(100px, 1fr));
   grid-template-rows: repeat(4, 1fr);
+  /* 레이아웃 한번에 해결 */
+  grid-template-areas:
+    'box1 box1 box1 box3'
+    'box1 box1 box1 box6'
+    'box4 box5 box5 box6'
+    'box7 box5 box5 box2';
+
+  .frontend1 {
+    grid-area: box1;
+  }
+
+  .frontend2 {
+    grid-area: box2;
+  }
+  .frontend3 {
+    grid-area: box3;
+  }
+  .frontend4 {
+    grid-area: box4;
+  }
+  .frontend5 {
+    grid-area: box5;
+  }
+
+  .frontend6 {
+    grid-area: box6;
+  }
+  .frontend7 {
+    grid-area: box7;
+  }
 }
