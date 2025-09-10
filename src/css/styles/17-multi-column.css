@@ -1,0 +1,21 @@
+body {
+  margin: 20px;
+}
+
+.container {
+  background: rgb(255, 194, 242);
+
+  div {
+    margin-block: 20px;
+  }
+
+  .like {
+    column-width: 100px;
+    column-rule: 10px solid green;
+  }
+
+  .lion {
+    column-count: 2;
+    column-rule: 10px solid red;
+  }
+}
