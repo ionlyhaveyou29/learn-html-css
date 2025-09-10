@@ -1,0 +1,80 @@
+body {
+  margin: 20px;
+}
+/* 카드 컴포넌트 */
+/* 1열, 4행 */
+.card {
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  display: grid;
+  padding: 16px;
+  gap: 16px;
+  grid-template-columns: minmax(200px, 1fr);
+  /* 부모에게 넘겨줌 */
+  /* grid-template-rows: repeat(4, auto); */
+  /* 이미지마다 원본의 비율이 다름 */
+  /* bg으로 하면, 상자크기로 이미지가 잘림 */
+  /* object-fit 찾아보기 */
+  /* 임의로 사이즈를 지정 */
+  /* 이미지가 눌림 */
+  /* img {
+    inline-size: 200px;
+    block-size: 200px;
+  } */
+
+  figure {
+    background: #fcf;
+    inline-size: 200px;
+    /* 왜 블록사이즈를 적용하면, aspect-ratio가 안되지? */
+    /* block-size: 200px; */
+    /* 가로: 세로 */
+    aspect-ratio: 2 / 1;
+  }
+  /* 부모 크기를 주고, 상속 */
+  img {
+    inline-size: 100%;
+    block-size: 100%;
+    /* bg처리(상자)랑 동일 */
+    /* contain값도 확인해보기 */
+    object-fit: cover;
+    /* 이미지와 상자의 위치 비율을 맞춤*/
+    object-position: 20% 30%;
+  }
+
+  p {
+    /* 줄 */
+    line-height: 1.5;
+    /* 크기 */
+    font-size: 16px;
+    /* 자간 */
+    letter-spacing: -0.02em;
+  }
+  /* 길게 칠해지는 이유: 그리드아이템화 */
+  a {
+    background: #fcf;
+    color: white;
+    justify-self: end;
+    padding: 16px;
+    border-radius: 3px;
+  }
+}
+
+/* 카드 레아아웃 */
+.cards {
+  display: grid;
+  /* auto-fill: 뷰포트를 비율로 채우고, 다 채워지면 개행 */
+  /* media쿼리를 따로 쓰지 않아도 됨 */
+  /* auto-fit: 크기에 맞춰서 내부에 피팅해줌 */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  grid-template-rows: repeat(4, auto);
+  column-gap: 16px;
+  /* 나는 부모의 서브그리드야!!! */
+  /* 콘텐츠 행의 길이를 일정하게 부모와 동일하게 맞춰줌 */
+  .card {
+    grid-template-rows: subgrid;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-row: span 4;
+  }
+}
