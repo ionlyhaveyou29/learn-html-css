@@ -1,0 +1,65 @@
+body {
+  margin: 20px;
+}
+
+/* CSS Mask */
+.like {
+  /* 앞에 셀로판지 덧댄 느낌이 남 */
+  background: rgb(255, 56, 56);
+  inline-size: 400px;
+  block-size: 200px;
+  font-size: 60px;
+  font-weight: 900;
+  border: 20px solid rgb(74, 86, 255);
+  /* mask-image: url(/src/assets/svg/star.svg); */
+  /* border-box하면, 보더도 보임 */
+  /* mask-origin: content-box; */
+  /* 마스크 이미지 하나만 출력 */
+  /* mask-repeat: no-repeat; */
+  /* mask-position: 20px 30px; */
+  /* mask-size: 50px 50px; */
+
+  mask: url(/src/assets/svg/star.svg) content-box no-repeat 20% 20% /50px 50px;
+}
+
+/* 배경 이미지 활용 */
+.lion {
+  --button-color: green;
+
+  background: transparent;
+  /* 기본 속성 다 없애는 속성, 함부로 쓰지 X */
+  /* all: unset; */
+  border: 0 none;
+  padding: 0;
+  inline-size: 50px;
+  block-size: 50px;
+  /* 색 처음 끝 */
+
+  background-image: linear-gradient(to bottom, transparent 0% 45%, var(--button-color) 45% 55%, transparent 55% 100%), linear-gradient(to right, transparent 0% 45%, aqua 45% 55%, transparent 55% 100%);
+}
+
+/* 마스크 이미지 활용 */
+.euid {
+  --button-color: purple;
+  background: var(--button-color);
+  /* 마스크가 있는 영역에 보임 */
+  /* 투명하지 않은 영역만 보임 */
+  border: 0 none;
+  padding: 0;
+  inline-size: 50px;
+  block-size: 50px;
+  /* button색이 아니더라도, 마스크이미지면 적용됨 */
+  mask-image: linear-gradient(to bottom, transparent 0% 45%, #fff 45% 55%, transparent 55% 100%), linear-gradient(to right, transparent 0% 45%, aqua 45% 55%, transparent 55% 100%);
+}
+
+/* 마스크 이미지 활용2 */
+.bootcamp {
+  background: transparent;
+  border: 0 none;
+  padding: 0;
+  inline-size: 50px;
+  block-size: 50px;
+  background-color: transparent;
+  background-image: linear-gradient(red, orange, yellow, green, blue, darkblue, purple);
+  mask: url(/src/assets/svg/rice.svg) no-repeat 0 0 / cover;
+}
