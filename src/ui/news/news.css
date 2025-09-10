@@ -1,3 +1,63 @@
+:root {
+  --white: #fff;
+  --blue-100: #3030e0;
+  --blue-200: #111166;
+
+  --text-color: var(--white);
+  --start-color: var(--blue-100);
+  --end-color: var(--blue-200);
+}
+
 body {
   margin: 20px;
+  /* 시간이 overflow된 걸 확인하기 위함 */
+  /* background: gray; */
+}
+/* 이디야 뉴스 */
+.news {
+  background: var(--blue-200);
+  color: white;
+  padding: 1rem;
+  /* 2열, 3행 */
+  /* 마크업: 제목 - 리스트 - 아이템1(앵커,타임) - 아이템2(앵커,타임) - 더보기 */
+  /* ul,li는 grid적용하면 안됨, display:contents주기 */
+  display: grid;
+  /* grid-template-columns: 3fr 1fr; */
+  /* 나는 콘텐츠에만 맞추면 돼!: max-content */
+  /* 최소 크기도 설계 */
+  grid-template-columns: minmax(200px, 1fr) max-content;
+  grid-template-rows: auto;
+  gap: 8px;
+
+  .news-list,
+  .news-item {
+    display: contents;
+  }
+  /* 혹은 grid-area로 row-start = 1, column-start = 2로 해도됨 */
+  /* .news-title,
+  .more {
+    order: -1;
+  } */
+
+  .news-title,
+  a,
+  time {
+    padding: 0.5rem;
+  }
+  .more {
+    grid-area: 1 / 2;
+    justify-self: end;
+  }
+  /* 모어가 아닌 a요소 전체 */
+  /* 인라인요소지만, grid아이템으로 블록화됨 */
+  a:not(.more) {
+    /* background: #fcf; */
+    /* 줄바꿈을 제어하는 속성: nowrap은 다시 개행 금지 */
+    /* 날짜가 overflow가 됨 */
+    white-space: nowrap;
+    /* overflow를 숨김 */
+    overflow: hidden;
+    /* 부모 요소 넘어갈때 말줄임표 보여주기 */
+    text-overflow: ellipsis;
+  }
 }
