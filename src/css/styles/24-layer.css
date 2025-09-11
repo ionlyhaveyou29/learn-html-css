@@ -1,0 +1,43 @@
+/*  개념 */
+/* 레이어의 순서: 번호가 큰 것이 적용됨;  */
+/* 1번, 2번 중에 2번이 먼저 적용 */
+/* 여기서만 순서를 정해주면 css내부의 순서를 또 안 바꿔도 됨 */
+/* 순서를 확실히 정립할 필요가 있음, 헷갈림 */
+
+@layer state,module;
+
+/* 레이어규칙보다 내가 만든 것이 우선순위가 더 높음 */
+body {
+  margin: 20px;
+}
+
+.alert,
+p {
+  padding: 16px;
+}
+
+/* 이름이 없는 경우 */
+/* 우선순위: module-1번,state-2번,이름 없는 레이어-3번, 레이어 규칙 없는 것들-4번 */
+@layer {
+  .alert {
+    background: #fcf;
+  }
+}
+@layer state {
+  .alert {
+    background-color: brown;
+  }
+  p {
+    border: medium solid limegreen;
+    /* 이거 적용이 안됨 */
+    padding: 50px;
+  }
+}
+
+@layer module {
+  .alert {
+    border: medium solid violet;
+    background-color: darkorchid;
+    color: white;
+  }
+}
