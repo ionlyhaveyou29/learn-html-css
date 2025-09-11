@@ -1,0 +1,187 @@
+/* 중간단계의 애니메이션 효과를 넣을 수 있음 */
+/* 이 예제는 꼭 /common/animation.css를 확인하기 */
+body {
+  margin: 20px;
+}
+
+/* CSS 변수를 활용한 애니메이션 */
+
+.rotate .target-animation {
+  --rotation: 0deg;
+
+  inline-size: 120px;
+  aspect-ratio: 1;
+  /* absolute의 기준이 됨 */
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    /* top좌표 */
+    inset-block-start: 50%;
+    /* left좌표 */
+    inset-inline-start: 50%;
+    /* 바뀌어야하는 건 각도, 그러나 애니메이션에서는 특정 값을 지정할 수 없음 */
+    /* custom속성으로 먼저 선언 */
+    background: conic-gradient(from var(--rotation), red 0 30%, transparent 30% 100%);
+    z-index: -1;
+    padding: 5px;
+    inline-size: 100%;
+    block-size: 100%;
+    box-sizing: content-box;
+    /* absolute로 배치한 위치를 , 절반만큼 왼쪽과 위쪽으로 끌어올리는 트릭 */
+    translate: -50% -50%;
+    border-radius: 0.5rem;
+    animation: rotate 500ms infinite linear;
+    animation-play-state: paused;
+  }
+
+  &::before {
+    filter: blur(10px);
+  }
+}
+/* Wobble 애니메이션 */
+.wobble .target-animation {
+  animation: wobble 1s infinite ease-in-out;
+  animation-play-state: paused;
+}
+
+/* Flip 애니메이션 */
+.flip {
+  /* perspective함수 */
+  perspective: 500px;
+
+  .target-animation {
+    animation: flip 1s infinite ease-in-out;
+    animation-play-state: paused;
+  }
+}
+/* Pulse 효과 */
+.pulse {
+  .target-animation {
+    animation: pulse 200ms infinite linear;
+  }
+}
+/* Spin 효과 */
+.spin {
+  .target-animation {
+    width: 120px;
+    aspect-ratio: 1;
+    background: conic-gradient(red 0% 25%, green 25% 50%, blue 50% 75%, purple 75% 100%);
+    border-radius: 50%;
+    animation: spin 200ms infinite linear;
+    animation-play-state: paused;
+  }
+}
+
+/* Shake 효과 */
+.shake {
+  .target-animation {
+    animation: shake 500ms infinite alternate ease-in-out;
+    animation-play-state: paused;
+  }
+}
+
+/* Bounce 효과 */
+.bounce {
+  .target-animation {
+    animation: bounce 500ms infinite alternate ease-in-out;
+    animation-play-state: paused;
+  }
+}
+
+/* Shrink 효과 */
+.shrink {
+  order: -1;
+}
+
+.shrink {
+  .target-animation {
+    transform-origin: 0 0;
+    animation: shrink 5s;
+    animation-play-state: paused;
+  }
+}
+/* Fade 효과 */
+.fade {
+  order: -1;
+
+  .target-animation {
+    /* animation-name: fade;
+    animation-duration: 5s; */
+    /* animation-play-state: running;과 paused; - 재생과 재생X */
+    /* 애니메이션의 반복 횟수, 무한이면 infinite */
+    /* animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 1s;
+    animation-fill-mode: forwards; */
+    /* 얘도 속기법 써도 됨 */
+    animation: fade 5s infinite alternate 3s paused ease-in-out forwards;
+  }
+}
+
+/* Move 효과 */
+.bootcamp {
+  /* active를 추가하면, js처럼 동작 */
+  .move.active {
+    /* animation-name, duration 무조건 */
+    /* animation.css에 있는 속성 불러오기 */
+    /* 현재 마진으로 move를 만들었음 */
+    animation-name: move;
+    animation-duration: 2s;
+  }
+}
+
+/* 공통 스타일 (.container 및 .case) */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  grid-auto-rows: 18.75rem;
+  gap: 1.25rem;
+  color: #fff;
+
+  hr {
+    display: none;
+  }
+}
+.case {
+  border: 1px solid light-dark(#000, #fff);
+  padding: 2.5rem;
+
+  strong {
+    color: #37b24d;
+    display: block;
+    font-size: 20px;
+    margin-block-end: 10px;
+  }
+
+  button {
+    border-radius: 0.5rem;
+    padding: 0.5em 1em;
+    color: #fff;
+  }
+
+  .toggle-animation {
+    background-color: #4263eb;
+  }
+
+  .toggle-animation.paused {
+    background-color: #e03131;
+  }
+
+  .reset-animation {
+    background-color: #15aabf;
+  }
+
+  .target-animation {
+    margin-top: 2.5rem;
+    margin-block-start: 2.5rem;
+    font-size: 2rem;
+    text-align: center;
+    align-content: center;
+    padding: 0.625rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(135deg, #37b24d, #2b8a3e);
+  }
+}
