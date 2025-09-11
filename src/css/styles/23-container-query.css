@@ -13,11 +13,18 @@ h1,
 .control {
   margin-block: 16px;
 }
+
 .post {
   box-shadow: 0 0 0 5px currentColor;
   /* 부모크기에 적용! */
   container-type: inline-size;
-  /* inline-size: none; */
+  container-name: euid;
+  /* 속기법: container: inline-size / euid; */
+  /* inline-size: 300px; */
+}
+/* 조부모 크기 */
+.bootcamp {
+  inline-size: 400px;
 }
 .card {
   background: #ffc;
@@ -27,11 +34,22 @@ h1,
     color: rgb(255, 107, 223);
   }
 
-  @container (width>=600px) {
+  @container euid (width>=600px) {
     background-color: #fcf;
 
     h2 {
       color: green;
     }
+  }
+}
+
+/* 레이아웃 */
+.wrapper {
+  box-shadow: 0 0 0 5px currentColor;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  .cell {
+    container-type: inline-size;
   }
 }
