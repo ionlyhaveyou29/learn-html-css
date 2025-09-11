@@ -1,0 +1,120 @@
+body {
+  margin: 20px;
+}
+/* 그리드 레이아웃 */
+.wrapper {
+  border: 10px solid rgb(255, 95, 159);
+  background: #fcf;
+  display: grid;
+
+  /* autofill */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* grid-template-rows: repeat(3, 200px); */
+  grid-auto-rows: 200px;
+  grid-auto-flow: row;
+}
+
+/* container 공통 */
+.container {
+  padding: 16px;
+  border: 1px solid currentColor;
+
+  > div {
+    inline-size: 80px;
+    block-size: 80px;
+    background: yellow;
+    text-align: center;
+    align-content: center;
+  }
+}
+
+/* translate - 이동 */
+.like {
+  .translate {
+    /* 정적인 곳에 줘야, 둘다 적용 가능 */
+    /* 동적인 곳은, 눌렀을 때만 실행됨 */
+    transition-property: translate;
+    transition-duration: 1s;
+
+    /* 트랜지션 속성과 지속시간을 주면 안됨, 다시 돌아오는 게 없잖니!*/
+    &.active {
+      /* transform: translate(100px, 0); */
+      translate: 100px 0;
+    }
+  }
+}
+/* transition - :hover */
+.euid {
+  padding: 16px;
+  border: 1px solid currentColor;
+  /* background: pink; */
+  /* inline-size: 500px; */
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 10px;
+  /* 늘어나보이는 문제 */
+  align-items: start;
+  /* 1단 유지 */
+  grid-column: 1/-1;
+
+  span {
+    background: lightgreen;
+    padding: 10px;
+    /* 올리고 뗐을 때 모두 적용 */
+    transition-property: background;
+    transition-duration: 2000ms;
+
+    &:hover {
+      background: pink;
+    }
+  }
+}
+
+/* skew - 기울이기 */
+.lion {
+  .skew {
+    transition-property: transform;
+    transition-duration: 1000ms;
+
+    &.active {
+      transform: skew(-15deg, 5deg) translateX(100px);
+      translate: 100px 0;
+    }
+  }
+}
+
+/* rotate - 회전하기 */
+.bootcamp {
+  .rotate {
+    border-radius: 50%;
+    /* transition-property: rotate, translate;
+    transition-duration: 1000ms, 2000ms;
+    transition-timing-function: ease-in-out, linear; */
+    /* 속기법 */
+    transition:
+    /* 순서는 나중에 있는게 추가속성(?)이라 딜레이임 */
+      translate 1000ms,
+      ease-in-out 0ms,
+      rotate 500ms linear 1000ms,
+      background 500ms ease 1500ms;
+    border-radius: 50%;
+
+    &.active {
+      /* transform: skew(-15deg, 5deg) translateX(100px); */
+      rotate: 1turn;
+      translate: 100px 0;
+    }
+  }
+}
+
+/* scale - 크기 조정 */
+/* 이때까지 모든 시작 값이 center */
+/* transition-origin: 50% 50%; -> 이게 center라는 뜻 */
+.frontend {
+  transition: scale 1000ms;
+  transform-origin: 0 0;
+
+  &:active {
+    scale: 2/1;
+  }
+}
