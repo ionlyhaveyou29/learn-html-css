@@ -1,0 +1,37 @@
+/* 개념*/
+/* containing block: 부모상자, 하위를 묶어두는 것 */
+/* 미디어 쿼리: 뷰포트 기준 */
+/* 컨테이너 쿼리: 부모상자의 크기에 따라서 자식을 다르게 표시하는 것 */
+/* 사용법 */
+/* container type: inline-size(=width) 기준 */
+
+body {
+  margin: 20px;
+}
+
+h1,
+.control {
+  margin-block: 16px;
+}
+.post {
+  box-shadow: 0 0 0 5px currentColor;
+  /* 부모크기에 적용! */
+  container-type: inline-size;
+  /* inline-size: none; */
+}
+.card {
+  background: #ffc;
+  padding: 20px;
+
+  h2 {
+    color: rgb(255, 107, 223);
+  }
+
+  @container (width>=600px) {
+    background-color: #fcf;
+
+    h2 {
+      color: green;
+    }
+  }
+}
