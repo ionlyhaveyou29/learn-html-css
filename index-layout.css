@@ -1,0 +1,28 @@
+html {
+  background: #ffc;
+}
+
+body {
+  margin: 20px;
+}
+h1 {
+  padding: 20px;
+}
+.css,
+.html,
+.ui {
+  background: #fcf;
+
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  .h2 {
+    padding: 20px;
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(230px, 1fr));
+}
